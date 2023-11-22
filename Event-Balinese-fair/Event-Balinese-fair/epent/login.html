@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      height: 350px;
+      width: 350px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+      background-color: #4caf50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    button {
+      background-color: #3498db;
+      color: #fff;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+  <script>
+    function check(form) {
+      var username = form.username.value;
+      var password = form.password.value;
+
+      if (localStorage.getItem('username') && localStorage.getItem('password')) {
+        if (username === localStorage.getItem('username') && password === localStorage.getItem('password')) {
+          alert("Berhasil login");
+          window.location.href = "home.html";
+        } else {
+          alert("Error: Username atau Password salah.");
+        }
+      } else {
+        alert("Error: Silakan daftar terlebih dahulu.");
+      }
+    }
+
+    function register() {
+      var newUsername = prompt("Masukkan username baru:");
+      var newPassword = prompt("Masukkan password baru:");
+
+      localStorage.setItem('username', newUsername);
+      localStorage.setItem('password', newPassword);
+
+      alert("Pendaftaran berhasil. Silakan login.");
+    }
+  </script>
+</head>
+<body>
+  <form onsubmit="event.preventDefault(); check(this);">
+    <h2>Login Form</h2>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required>
+    <br>
+    <input type="submit" value="Login">
+    <button onclick="register()">Daftar</button>
+  </form>
+  
+</body>
+</html>

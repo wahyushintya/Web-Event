@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #181818;
+    }
+
+    div {
+        width: 600px;
+        height: 300px;
+        box-shadow: 16px 14px 20px #0000008c;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    div::before{
+        content: "";
+        background-image: conic-gradient(
+            #ffd500,
+            transparent 200deg
+        );
+        width: 250%;
+        height: 250%;
+        position: absolute;
+        animation: rotate 4s linear infinite;
+    }
+    div::after{
+        content: "THANK YOU FOR ORDER";
+        width: 590px;
+        height: 290px;
+        background: #7a0606;
+        position: absolute;
+        border-radius: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #ffffff;
+        font-size: 40px;
+        letter-spacing: 5px;
+    }
+    @keyframes rotate {
+        0%{
+            transform: rotate(0deg);
+        }
+        100%{
+            transform: rotate(-360deg);
+        }
+    }
+
+    .h1 {
+        color: white;
+    }
+</style>
+
+<body>
+    <div>
+        
+    </div>
+    <h1>
+    </h1>
+</body>
+
+</html>
